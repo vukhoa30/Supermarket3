@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Product.ascx.cs" Inherits="_1685009.WebUC.Product" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Detail.ascx.cs" Inherits="_1685009.WebUC.Detail" %>
 
 <div class="products">
     <div class="container">
@@ -18,15 +18,15 @@
                         <h2><%# Eval("Name") %></h2>
                         <div class="rating1">
                             <span class="starRating">
-                                <input id="rating5" type="radio" name="rating" value="5" <%# Eval("AverageRating") != System.DBNull.Value && Math.Round((double)Eval("AverageRating")) == 5 ? "checked" : "" %>>
+                                <input id="rating5" type="radio" name="rating" value="5" <%# isChecked(5, Eval("AverageRating")) %>>
                                 <label for="rating5">5</label>
-                                <input id="rating4" type="radio" name="rating" value="4" <%# Eval("AverageRating") != System.DBNull.Value && Math.Round((double)Eval("AverageRating")) == 4 ? "checked" : "" %>>
+                                <input id="rating4" type="radio" name="rating" value="4" <%# isChecked(4, Eval("AverageRating")) %>>
                                 <label for="rating4">4</label>
-                                <input id="rating3" type="radio" name="rating" value="3" <%# Eval("AverageRating") != System.DBNull.Value && Math.Round((double)Eval("AverageRating")) == 3 ? "checked" : "" %>>
+                                <input id="rating3" type="radio" name="rating" value="3" <%# isChecked(3, Eval("AverageRating")) %>>
                                 <label for="rating3">3</label>
-                                <input id="rating2" type="radio" name="rating" value="2" <%# Eval("AverageRating") != System.DBNull.Value && Math.Round((double)Eval("AverageRating")) == 2 ? "checked" : "" %>>
+                                <input id="rating2" type="radio" name="rating" value="2" <%# isChecked(2, Eval("AverageRating")) %>>
                                 <label for="rating2">2</label>
-                                <input id="rating1" type="radio" name="rating" value="1" <%# Eval("AverageRating") != System.DBNull.Value && Math.Round((double)Eval("AverageRating")) == 1 ? "checked" : "" %>>
+                                <input id="rating1" type="radio" name="rating" value="1" <%# isChecked(1, Eval("AverageRating")) %>>
                                 <label for="rating1">1</label>
                             </span>
                         &nbsp;&nbsp;</div>
@@ -39,8 +39,8 @@
                                 <h4 class="m-sing">$<%# Eval("Price") %><span>$<%# Eval("OldPrice") %></span></h4>
                             </div>
                             <div class="snipcart-details agileinfo_single_right_details">
-                                <asp:Button ID="ButtonAddToCart" runat="server" Text="Add To Cart" CssClass="button"
-                                    CommandName="AddToCart" CommandArgument='<%# Eval("Id") %>'/>
+                                <asp:Button ID="ButtonAddToCart" runat="server" Text="Add To Cart" ValidationGroup="detail"
+                                    CssClass="button" CommandName="AddToCart" CommandArgument='<%# Eval("Id") %>'/>
                             </div>
                         </div>
                     </div>
